@@ -52,11 +52,6 @@ public class EditCustomer extends JFrame implements ActionListener {
     private Icon backIcon;
     private JTextArea notify;
 
-    Color lpink = (new Color(250, 200, 250));
-    Color dblue = (new Color(10, 10, 15));
-    Color dblue2 = (new Color(21, 21, 31));
-    Color dpink = (new Color(255, 30, 75));
-
     public void findCustomer() {
 
         setTitle("A Class Barbers");
@@ -72,14 +67,14 @@ public class EditCustomer extends JFrame implements ActionListener {
         title.setFont(new Font("Arial", Font.BOLD, 35));
         title.setSize(300, 30);
         title.setLocation(300, 30);
-        title.setForeground(dpink);
+        title.setForeground(blue);
         container.add(title);
 
         BarberFNameLabel = new JLabel("First Name");
         BarberFNameLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberFNameLabel.setSize(150, 20);
         BarberFNameLabel.setLocation(100, 100);
-        BarberFNameLabel.setForeground(lpink);
+        BarberFNameLabel.setForeground(red);
         container.add(BarberFNameLabel);
 
         BarberFNameField = new JTextField();
@@ -93,7 +88,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberLNameLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberLNameLabel.setSize(100, 20);
         BarberLNameLabel.setLocation(100, 150);
-        BarberLNameLabel.setForeground(lpink);
+        BarberLNameLabel.setForeground(red);
         container.add(BarberLNameLabel);
 
         BarberLNameField = new JTextField();
@@ -107,7 +102,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberEmailLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberEmailLabel.setSize(100, 20);
         BarberEmailLabel.setLocation(100, 200);
-        BarberEmailLabel.setForeground(lpink);
+        BarberEmailLabel.setForeground(red);
         container.add(BarberEmailLabel);
 
         BarberEmailField = new JTextField();
@@ -121,7 +116,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberNumLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberNumLabel.setSize(100, 20);
         BarberNumLabel.setLocation(100, 250);
-        BarberNumLabel.setForeground(lpink);
+        BarberNumLabel.setForeground(red);
         container.add(BarberNumLabel);
 
         BarberNumField = new JTextField();
@@ -135,7 +130,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberAvailableLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberAvailableLabel.setSize(100, 20);
         BarberAvailableLabel.setLocation(100, 300);
-        BarberAvailableLabel.setForeground(lpink);
+        BarberAvailableLabel.setForeground(red);
         container.add(BarberAvailableLabel);
 
         BarberAvailableField = new JTextField();
@@ -149,7 +144,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberLicenseNumLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberLicenseNumLabel.setSize(100, 25);
         BarberLicenseNumLabel.setLocation(100, 350);
-        BarberLicenseNumLabel.setForeground(lpink);
+        BarberLicenseNumLabel.setForeground(red);
         container.add(BarberLicenseNumLabel);
 
         BarberLicenseNumField = new JTextField(3);
@@ -163,7 +158,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         idLabel.setFont(new Font("Arial", Font.BOLD, 20));
         idLabel.setSize(100, 25);
         idLabel.setLocation(100, 400);
-        idLabel.setForeground(lpink);
+        idLabel.setForeground(red);
         container.add(idLabel);
 
         idField = new JTextField();
@@ -175,8 +170,8 @@ public class EditCustomer extends JFrame implements ActionListener {
 
         submitBtn = new JButton("Submit");
         submitBtn.setFont(new Font("Arial", Font.BOLD, 25));
-        submitBtn.setForeground(dpink);
-        submitBtn.setBackground(lpink);
+        submitBtn.setForeground(blue);
+        submitBtn.setBackground(red);
         submitBtn.setSize(340, 50);
         submitBtn.setLocation(100, 450);
         submitBtn.addActionListener(this);
@@ -185,7 +180,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         resetBtn = new JButton("Reset");
         resetBtn.setFont(new Font("Arial", Font.BOLD, 25));
         resetBtn.setForeground(Color.white);
-        resetBtn.setBackground(dpink);
+        resetBtn.setBackground(blue);
         resetBtn.setSize(340, 50);
         resetBtn.setLocation(100, 520);
         resetBtn.addActionListener(this);
@@ -194,7 +189,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         removeBtn = new JButton("Remove Barber");
         removeBtn.setFont(new Font("Arial", Font.BOLD, 25));
         removeBtn.setForeground(Color.white);
-        removeBtn.setBackground(dpink);
+        removeBtn.setBackground(blue);
         removeBtn.setSize(340, 50);
         removeBtn.setLocation(100, 550);
         removeBtn.addActionListener(this);
@@ -208,7 +203,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         notify.setLocation(500, 100);
         notify.setLineWrap(true);
         notify.setEditable(false);
-        notify.setBorder(BorderFactory.createLineBorder(lpink));
+        notify.setBorder(BorderFactory.createLineBorder(red));
         container.add(notify);
 
         searchBtn = new JButton("Search Barber ID");
@@ -228,7 +223,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         backBtn = new JButton("", backIcon);
         backBtn.addActionListener(new CloseButtonListener());
         backBtn.setSize(100, 70);
-        backBtn.setBackground(lpink);
+        backBtn.setBackground(red);
         backBtn.setLocation(700, 500);
         container.add(backBtn);
 
@@ -330,29 +325,29 @@ public class EditCustomer extends JFrame implements ActionListener {
                 if (validateName(BarberFName) == false) {
                     notify.setText(
                             "The submitted first name is not valid. Only letters and certain symbols are permitted.");
-                    BarberFNameField.setBackground(lpink);
+                    BarberFNameField.setBackground(red);
                 } else if (validateName(BarberLName) == false) {
                     notify.setText(
                             "The submitted last name is not valid. Only letters and certain symbols are permitted.");
-                    BarberLNameField.setBackground(lpink);
+                    BarberLNameField.setBackground(red);
                 } else if (validateBarberEmail(BarberEmail) == false) {
                     notify.setText("The submitted email is not valid. Please ensure you added the domain.");
-                    BarberEmailField.setBackground(lpink);
+                    BarberEmailField.setBackground(red);
                 } else if (validatePhone(BarberNum) == false) {
                     notify.setText(
                             "The submitted phone number is not valid. Must be 7 or 10 digits and begin with valid digits.");
-                    BarberNumField.setBackground(lpink);
+                    BarberNumField.setBackground(red);
                 } else if (validateBarberAvailable(BarberAvailable) == false) {
                     notify.setText("The submitted date and time is not valid. Only letters and numbers are permitted.");
-                    BarberAvailableField.setBackground(lpink);
+                    BarberAvailableField.setBackground(red);
                 } else if (validateBarberLicenseNum(Integer.valueOf(BarberLicenseNum)) == false) {
                     notify.setText(
                             "The submitted Barber License Number is not valid. Please ensure ther correct Numbers and Letters are entered.");
-                    BarberLicenseNumField.setBackground(lpink);
+                    BarberLicenseNumField.setBackground(red);
                 } else if (validateID(id) == false) {
                     notify.setText(
                             "The submitted ID name is not valid. Please ensure it includes a letter or a number.");
-                    idField.setBackground(lpink);
+                    idField.setBackground(red);
                 } else {
                     String blank = "";
                     BarberFNameField.setText(blank);
