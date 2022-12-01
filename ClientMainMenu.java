@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainMenu extends JPanel {
+public class ClientMainMenu extends JPanel {
     private static JFrame frame;
 
     private JPanel pnlCommand;
@@ -19,10 +19,10 @@ public class MainMenu extends JPanel {
     private JButton cmdMakeAppointment;
     private JButton cmdGenerateReceipt;
     private JButton cmdClose;
-    private MainMenu thisMainMenu;
+    private ClientMainMenu thisMainMenu;
     private GenerateReceipt genReceipt;
 
-    public MainMenu() {
+    public ClientMainMenu() {
         super(new GridLayout(2, 1));
         thisMainMenu = this;
 
@@ -70,7 +70,7 @@ public class MainMenu extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create and set up the content pane.
-        MainMenu newContentPane = new MainMenu();
+        ClientMainMenu newContentPane = new ClientMainMenu();
         newContentPane.setOpaque(true); // content panes must be opaque
         frame.setContentPane(newContentPane);
 
@@ -96,14 +96,15 @@ public class MainMenu extends JPanel {
         public void actionPerformed(ActionEvent e) {// listener for MakeAppointment button, initiates when button is
                                                     // clicked
             // function_call();
+            // new MakeAppointment();
+            // frame.setVisibile(true)
         }
     }
 
     public class GenerateReceiptButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {// listener for GenerateReceipt button, initiates when button is
                                                     // clicked
-
-            GenerateReceipt.createAndShowGUI();
+            new GenerateReceipt();
             frame.setVisible(false);
         }
     }

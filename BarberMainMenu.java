@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainMenu extends JPanel {
+public class BarberMainMenu extends JPanel {
     private static JFrame frame;
 
     private JPanel pnlCommand;
@@ -20,11 +20,11 @@ public class MainMenu extends JPanel {
     private JButton cmdViewAppointmentSchedule;
     private JButton cmdAutomatedReminder;
     private JButton cmdClose;
-    private MainMenu thisMainMenu;
+    private BarberMainMenu thisMainMenu;
     private AutomatedReminder autoremind;
     private ViewAppointmentSchedule viewappsch;
 
-    public MainMenu() {
+    public BarberMainMenu() {
         super(new GridLayout(2, 1));
         thisMainMenu = this;
 
@@ -74,7 +74,7 @@ public class MainMenu extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create and set up the content pane.
-        MainMenu newContentPane = new MainMenu();
+        BarberMainMenu newContentPane = new BarberMainMenu();
         newContentPane.setOpaque(true); // content panes must be opaque
         frame.setContentPane(newContentPane);
 
@@ -86,13 +86,12 @@ public class MainMenu extends JPanel {
 
     public static void main(String[] args) {
         // new OpeningScreen();
-        // AddProduct ap = new AddProduct();
-        // Product p = AddProduct.A
+
     }
 
     public class AddBarberButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) { // listener for AddBarber button, initiates when button is clicked
-            new AddBarber();
+            new AddBarberProfile();
             frame.setVisible(false);
         }
     }
@@ -100,7 +99,8 @@ public class MainMenu extends JPanel {
     public class EditBarberButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {// listener for EditBarber button, initiates when button is clicked
             // function_call();
-            EditBarberProfile();
+            new EditBarberProfile();
+            frame.setVisible(false);
         }
     }
 
@@ -108,7 +108,7 @@ public class MainMenu extends JPanel {
         public void actionPerformed(ActionEvent e) {// listener for ViewAppointmentSchedule button, initiates when
                                                     // button is clicked
             // function_call();
-            ViewAppointmentSchedule.createandShowGUI();
+            //ViewAppointmentSchedule.createandShowGUI();
         }
     }
 
@@ -116,7 +116,7 @@ public class MainMenu extends JPanel {
         public void actionPerformed(ActionEvent e) {// listener for AutomatedReminder button, initiates when button is
                                                     // clicked
 
-            AutomatedReminder.createAndShowGUI();
+            //AutomatedReminder.createAndShowGUI();
             frame.setVisible(false);
         }
     }

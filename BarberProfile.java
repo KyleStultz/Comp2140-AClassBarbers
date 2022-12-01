@@ -1,11 +1,16 @@
+/* The Barber Profile should allow the barbers the have the ability to create a new barber profile.
+ * 
+ * @author - Kyle Stultz
+ * 
+ */
+
 import java.awt.*;
 import java.util.*;
 import java.util.Scanner;
 
 public class BarberProfile {
 
-    private String BarberFName, BarberLName, id;
-    private int BarberNum;
+    private String BarberFName, BarberLName, BarberNum, id;
     private char BarberEmail, BarberAvailable, BarberLicenseNum;
     private Scanner scanner = new Scanner(System.in);
 
@@ -13,7 +18,7 @@ public class BarberProfile {
         this.id = empty;
     }
 
-    public BarberProfile(String BarberFName, String BarberLName, char BarberEmail, int BarberNum, char BarberAvailable,
+    public BarberProfile(String BarberFName, String BarberLName, char BarberEmail, String BarberNum, char BarberAvailable,
             char BarberLicenseNum) {
         this.BarberFName = BarberFName;
         this.BarberLName = BarberLName;
@@ -28,23 +33,43 @@ public class BarberProfile {
         return this.BarberFName;
     }
 
+    public void setBarberFName(String BarberFName) {
+        this.BarberFName = BarberFName;
+    }
+
     public String getBarberLName() {
         return this.BarberLName;
     }
 
-    public chae getBarberEmail() {
+    public void setBarberLName(String BarberLName) {
+        this.BarberLName = BarberLName;
+    }
+
+    public char getBarberEmail() {
         return this.BarberEmail;
     }
 
-    public int getBarberNum() {
+    public void setBarberEmail(char email) {
+        this.BarberEmail = BarberEmail;
+    }
+
+    public String getBarberNum() {
         return this.BarberNum;
+    }
+
+    public void setBarberNum(String BarberNum) {
+        this.BarberNum = BarberNum;
     }
 
     public char getBarberAvailable() {
         return this.BarberAvailable;
     }
 
-    public Srting getId() {
+    public void setBarberAvailable(char BarberAvailable) {
+        this.BarberAvailable = BarberAvailable;
+    }
+
+    public String getId() {
         return this.id;
     }
 

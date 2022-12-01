@@ -45,7 +45,7 @@ public class OpeningScreen extends JFrame {
         /// top half
         pnlCover = new JPanel();
 
-        pnlCover.setBackground(dblue);
+        pnlCover.setBackground(Color.blue);
 
         JLabel title = new JLabel("", JLabel.SOUTH_EAST);
         pnlCover.add(title, BorderLayout.NORTH);
@@ -71,7 +71,7 @@ public class OpeningScreen extends JFrame {
         Icon registericon = new ImageIcon("images/profilepic.png");
         registerbutton = new JButton("  Register User", registericon);
         registerbutton.setSize(new Dimension(340, 100));
-        registerbutton.addActionListener(new registerbuttonListener());
+        registerbutton.addActionListener(new RegisterButtonListener());
 
         registerbutton.setFont(new Font("Arial", Font.BOLD, 32));/// set button font
         registerbutton.setBackground(Color.white);/// set button bg colour
@@ -86,7 +86,7 @@ public class OpeningScreen extends JFrame {
         gbc.gridwidth = 2;
         Icon loginicon = new ImageIcon("images/profilepic.png");
         loginbutton = new JButton(" Login", loginicon);
-        loginbutton.addActionListener(new loginbuttonListener());
+        loginbutton.addActionListener(new LoginButtonListener());
         // loginbutton.setSize(new Dimension(340, 100));
 
         loginbutton.setFont(new Font("Arial", Font.BOLD, 32));/// set button font
@@ -133,7 +133,7 @@ public class OpeningScreen extends JFrame {
     // opens registration and login
     private class RegisterButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            new AddClient();
+            new AddClientAccount();
             setVisible(true);
         }
     }

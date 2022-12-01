@@ -41,24 +41,22 @@ class LoginForm extends JFrame implements ActionListener {
         setTitle("LOGIN FORM");
     }
 
-    public void actionPerformed(ActionEvent ae) 
-    {  
-        String userValue = textField1.getText();          
-        String passValue = textField2.getText(); 
-          
-        //check whether the credentials are authentic or not
-        //if authentic, navigate user to a new page
-        if (userValue.equals("admin") && passValue.equals("password123")) {   
-            BarberMainMenu bmenu = new BarberMainMenu();   
-            bmenu.setVisible(true);   
-        }
-        elif (userValue.equals(ClientAccount.getUsername) && passValue.equals(ClientAccount.getPassword)) {
+    public void actionPerformed(ActionEvent ae) {
+        String userValue = textField1.getText();
+        String passValue = textField2.getText();
+
+        // check whether the credentials are authentic or not
+        // if authentic, navigate user to the main menu, else invalid username and
+        // password
+        if (userValue.equals("admin") && passValue.equals("password123")) {
+            BarberMainMenu bmenu = new BarberMainMenu();
+            bmenu.setVisible(false);
+        } else if (userValue.equals(ClientAccount.getUsername()) && (passValue.equals(ClientAccount.getPassword()))) {
             ClientMainMenu cmenu = new ClientMainMenu();
-            cmenu.setVisible(true);
-        } 
-        else{  
-            //show error message  
-            System.out.println("Please enter valid username and password");  
-        }  
+            cmenu.setVisible(false);
+        } else {
+            // show error message
+            System.out.println("Please enter valid username and password");
+        }
     }
 }

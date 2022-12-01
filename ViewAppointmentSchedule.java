@@ -1,13 +1,15 @@
+/*This allows the barber to be able view any existing or upcoming
+ * appointments that were successfully made.
+ * 
+ * @author - Renaldo Kelly
+ */
+
 import java.util.*;
 import java.io.*;
 import java.sql.Timestamp;
 
 import javax.swing.*;
 import java.awt.*;
- 
-
-
-
 
         public class ViewAppointmentSchedule {
             private String clientusername, barber, ethnicity,hairstyle;
@@ -48,7 +50,7 @@ import java.awt.*;
             public int getAge() {
                 return this.age;
             }
-            public Char getAppointmenttime() {
+            public char getAppointmenttime() {
                 return this.apppointmenttime;
             }
             public Timestamp getAppointmentdate() {

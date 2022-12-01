@@ -20,7 +20,7 @@ import java.io.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.*;
 
-public class EditCustomer extends JFrame implements ActionListener {
+public class EditBarberProfile extends JFrame implements ActionListener {
     private Scanner scan = new Scanner(System.in);
     String input;
     private static String firstname, lastname, BarEmail, phone, BarLiNum, BarAvail;
@@ -60,21 +60,21 @@ public class EditCustomer extends JFrame implements ActionListener {
         setResizable(false);
 
         container = getContentPane();
-        container.setBackground(dblue);
+        container.setBackground(Color.blue);
         container.setLayout(null);
 
         title = new JLabel("Edit Barber Details");
         title.setFont(new Font("Arial", Font.BOLD, 35));
         title.setSize(300, 30);
         title.setLocation(300, 30);
-        title.setForeground(blue);
+        title.setForeground(Color.blue);
         container.add(title);
 
         BarberFNameLabel = new JLabel("First Name");
         BarberFNameLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberFNameLabel.setSize(150, 20);
         BarberFNameLabel.setLocation(100, 100);
-        BarberFNameLabel.setForeground(red);
+        BarberFNameLabel.setForeground(Color.red);
         container.add(BarberFNameLabel);
 
         BarberFNameField = new JTextField();
@@ -88,7 +88,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberLNameLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberLNameLabel.setSize(100, 20);
         BarberLNameLabel.setLocation(100, 150);
-        BarberLNameLabel.setForeground(red);
+        BarberLNameLabel.setForeground(Color.red);
         container.add(BarberLNameLabel);
 
         BarberLNameField = new JTextField();
@@ -98,11 +98,11 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberLNameField.setLocation(250, 150);
         container.add(BarberLNameField);
 
-        BarberEmailLabel = new JLabel("BarberEmail");
+        BarberEmailLabel = new JLabel("Barber Email");
         BarberEmailLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberEmailLabel.setSize(100, 20);
         BarberEmailLabel.setLocation(100, 200);
-        BarberEmailLabel.setForeground(red);
+        BarberEmailLabel.setForeground(Color.red);
         container.add(BarberEmailLabel);
 
         BarberEmailField = new JTextField();
@@ -116,7 +116,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberNumLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberNumLabel.setSize(100, 20);
         BarberNumLabel.setLocation(100, 250);
-        BarberNumLabel.setForeground(red);
+        BarberNumLabel.setForeground(Color.red);
         container.add(BarberNumLabel);
 
         BarberNumField = new JTextField();
@@ -126,11 +126,11 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberNumField.setLocation(250, 250);
         container.add(BarberNumField);
 
-        BarberAvailableLabel = new JLabel("BarberAvailable");
+        BarberAvailableLabel = new JLabel("Barber Availablity");
         BarberAvailableLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberAvailableLabel.setSize(100, 20);
         BarberAvailableLabel.setLocation(100, 300);
-        BarberAvailableLabel.setForeground(red);
+        BarberAvailableLabel.setForeground(Color.red);
         container.add(BarberAvailableLabel);
 
         BarberAvailableField = new JTextField();
@@ -140,11 +140,11 @@ public class EditCustomer extends JFrame implements ActionListener {
         BarberAvailableField.setLocation(250, 300);
         container.add(BarberAvailableField);
 
-        BarberLicenseNumLabel = new JLabel("BarberLicenseNum");
+        BarberLicenseNumLabel = new JLabel("Barber License Number");
         BarberLicenseNumLabel.setFont(new Font("Arial", Font.BOLD, 20));
         BarberLicenseNumLabel.setSize(100, 25);
         BarberLicenseNumLabel.setLocation(100, 350);
-        BarberLicenseNumLabel.setForeground(red);
+        BarberLicenseNumLabel.setForeground(Color.red);
         container.add(BarberLicenseNumLabel);
 
         BarberLicenseNumField = new JTextField(3);
@@ -158,7 +158,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         idLabel.setFont(new Font("Arial", Font.BOLD, 20));
         idLabel.setSize(100, 25);
         idLabel.setLocation(100, 400);
-        idLabel.setForeground(red);
+        idLabel.setForeground(Color.red);
         container.add(idLabel);
 
         idField = new JTextField();
@@ -170,8 +170,8 @@ public class EditCustomer extends JFrame implements ActionListener {
 
         submitBtn = new JButton("Submit");
         submitBtn.setFont(new Font("Arial", Font.BOLD, 25));
-        submitBtn.setForeground(blue);
-        submitBtn.setBackground(red);
+        submitBtn.setForeground(Color.blue);
+        submitBtn.setBackground(Color.red);
         submitBtn.setSize(340, 50);
         submitBtn.setLocation(100, 450);
         submitBtn.addActionListener(this);
@@ -180,7 +180,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         resetBtn = new JButton("Reset");
         resetBtn.setFont(new Font("Arial", Font.BOLD, 25));
         resetBtn.setForeground(Color.white);
-        resetBtn.setBackground(blue);
+        resetBtn.setBackground(Color.blue);
         resetBtn.setSize(340, 50);
         resetBtn.setLocation(100, 520);
         resetBtn.addActionListener(this);
@@ -189,7 +189,7 @@ public class EditCustomer extends JFrame implements ActionListener {
         removeBtn = new JButton("Remove Barber");
         removeBtn.setFont(new Font("Arial", Font.BOLD, 25));
         removeBtn.setForeground(Color.white);
-        removeBtn.setBackground(blue);
+        removeBtn.setBackground(Color.blue);
         removeBtn.setSize(340, 50);
         removeBtn.setLocation(100, 550);
         removeBtn.addActionListener(this);
@@ -199,11 +199,11 @@ public class EditCustomer extends JFrame implements ActionListener {
         notify.setFont(new Font("Arial", Font.PLAIN, 20));
         notify.setSize(300, 320);
         notify.setForeground(Color.white);
-        notify.setBackground(dblue2);
+        notify.setBackground(Color.green);
         notify.setLocation(500, 100);
         notify.setLineWrap(true);
         notify.setEditable(false);
-        notify.setBorder(BorderFactory.createLineBorder(red));
+        notify.setBorder(BorderFactory.createLineBorder(Color.red));
         container.add(notify);
 
         searchBtn = new JButton("Search Barber ID");
@@ -219,11 +219,11 @@ public class EditCustomer extends JFrame implements ActionListener {
         searchbar.setSize(190, 30);
         searchbar.setLocation(500, 440);
         container.add(searchbar);
-        backIcon = new ImBarberLicenseNumIcon("icons/exit.png");
+        backIcon = new ImageIcon("images/exit.png");
         backBtn = new JButton("", backIcon);
         backBtn.addActionListener(new CloseButtonListener());
         backBtn.setSize(100, 70);
-        backBtn.setBackground(red);
+        backBtn.setBackground(Color.red);
         backBtn.setLocation(700, 500);
         container.add(backBtn);
 
@@ -257,7 +257,7 @@ public class EditCustomer extends JFrame implements ActionListener {
                 try {
 
                     String old = "";
-                    BufferedReader reader1 = new BufferedReader(new FileReader("Customers.txt"));
+                    BufferedReader reader1 = new BufferedReader(new FileReader("BarberProfile.txt"));
 
                     String line1 = reader1.readLine();
 
@@ -267,7 +267,7 @@ public class EditCustomer extends JFrame implements ActionListener {
                     }
                     String new1 = old
                             .replaceAll("" + firstname + lastname + BarEmail + phone + BarAvail + BarLiNum + id, "");
-                    FileWriter writer1 = new FileWriter("Customers.txt");
+                    FileWriter writer1 = new FileWriter("BarberProfile.txt");
                     writer1.write(new1);
                     reader1.close();
                     writer1.close();
@@ -325,29 +325,29 @@ public class EditCustomer extends JFrame implements ActionListener {
                 if (validateName(BarberFName) == false) {
                     notify.setText(
                             "The submitted first name is not valid. Only letters and certain symbols are permitted.");
-                    BarberFNameField.setBackground(red);
+                    BarberFNameField.setBackground(Color.red);
                 } else if (validateName(BarberLName) == false) {
                     notify.setText(
                             "The submitted last name is not valid. Only letters and certain symbols are permitted.");
-                    BarberLNameField.setBackground(red);
+                    BarberLNameField.setBackground(Color.red);
                 } else if (validateBarberEmail(BarberEmail) == false) {
                     notify.setText("The submitted email is not valid. Please ensure you added the domain.");
-                    BarberEmailField.setBackground(red);
+                    BarberEmailField.setBackground(Color.red);
                 } else if (validatePhone(BarberNum) == false) {
                     notify.setText(
                             "The submitted phone number is not valid. Must be 7 or 10 digits and begin with valid digits.");
-                    BarberNumField.setBackground(red);
+                    BarberNumField.setBackground(Color.red);
                 } else if (validateBarberAvailable(BarberAvailable) == false) {
                     notify.setText("The submitted date and time is not valid. Only letters and numbers are permitted.");
-                    BarberAvailableField.setBackground(red);
+                    BarberAvailableField.setBackground(Color.red);
                 } else if (validateBarberLicenseNum(Integer.valueOf(BarberLicenseNum)) == false) {
                     notify.setText(
-                            "The submitted Barber License Number is not valid. Please ensure ther correct Numbers and Letters are entered.");
-                    BarberLicenseNumField.setBackground(red);
+                            "The submitted Barber License Number is not valid. Please ensure ther correct Numbers and Letters are enteColor.red.");
+                    BarberLicenseNumField.setBackground(Color.red);
                 } else if (validateID(id) == false) {
                     notify.setText(
                             "The submitted ID name is not valid. Please ensure it includes a letter or a number.");
-                    idField.setBackground(red);
+                    idField.setBackground(Color.red);
                 } else {
                     String blank = "";
                     BarberFNameField.setText(blank);
@@ -358,8 +358,9 @@ public class EditCustomer extends JFrame implements ActionListener {
                     BarberLicenseNumField.setText(blank);
                     idField.setText(blank);
 
-                    Customer c = new Customer(BarberFName, BarberLName, BarberEmail, BarberNum, BarberAvailable,
-                            Integer.valueOf(BarberLicenseNum), id);
+                    BarberProfile c = new BarberProfile(BarberFName, BarberLName, BarberEmail, BarberNum,
+                            BarberAvailable,
+                            BarberLicenseNum, id);
                     System.out.println(c);
 
                     try {
@@ -375,8 +376,9 @@ public class EditCustomer extends JFrame implements ActionListener {
                         String newContent = oldContent.replaceAll(
                                 "" + firstname + lastname + BarEmail + phone + BarAvail + BarLiNum + id,
                                 c.getBarberFName() + "!" + c.getBarberLName() + "!" + c.getBarberEmail() + "!"
-                                        + c.getPhone() + "!" + c.getBarberAvailable() + "!" + c.getBarberLicenseNum()
-                                        + "!" + c.getID() + "\n");
+                                        + c.getBarberNum() + "!" + c.getBarberAvailable() + "!"
+                                        + c.getBarberLicenseNum()
+                                        + "!" + c.getId() + "\n");
                         FileWriter writer = new FileWriter("BarberProfile.txt");
                         writer.write(newContent);
                         reader.close();
@@ -409,9 +411,9 @@ public class EditCustomer extends JFrame implements ActionListener {
 
     }
 
-    public static String SearchCustomer(String input) {
+    public static String SearchBarberProfile(String input) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("Customer.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("BarberProfile.txt"));
             String line;
             int i = 0;
             List<String> rdata = new ArrayList<String>();
@@ -432,7 +434,7 @@ public class EditCustomer extends JFrame implements ActionListener {
                     phone = dataFound[3];
                     BarAvail = dataFound[4];
 
-                    return ("Customer ID(" + dataFound[6] + ") Found\n----------------------------\n["
+                    return ("Barber ID(" + dataFound[6] + ") Found\n----------------------------\n["
                             + dataFound[0] + " " + dataFound[1] +
                             "]\nBarberEmail:\n-" + dataFound[2] +
                             "\nTelephone:\n-" + dataFound[3] +
@@ -442,9 +444,9 @@ public class EditCustomer extends JFrame implements ActionListener {
                 }
                 i = i + 1;
             }
-            return ("No customer with this ID was found.");
+            return ("No barber with this ID was found.");
         } catch (Exception e) {
-            return ("No customer with this ID was found.");
+            return ("No barber with this ID was found.");
         }
     }
 
@@ -518,7 +520,7 @@ public class EditCustomer extends JFrame implements ActionListener {
             // if the BarberAvailable does not have both a number and letters, it is invalid
             return true;
         } else {
-            System.out.println("Invalid BarberAvailable");
+            System.out.println("Invalid Availability");
             return false;
         }
     }
@@ -589,7 +591,7 @@ public class EditCustomer extends JFrame implements ActionListener {
     public class CloseButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e)// listener for Close button, initiates when button is clicked
         {
-            MainMenu.createAndShowGUI();
+            BarberMainMenu.createAndShowGUI();
             container.setVisible(false);
             dispose();
         }
