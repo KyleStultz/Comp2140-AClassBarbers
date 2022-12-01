@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ClientAccount {
 
-    private String Username,pNum, id;
+    private String Username,pNum,id;
     private int age;
     private char email, password;
     private Scanner scanner = new Scanner(System.in);

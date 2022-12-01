@@ -47,7 +47,8 @@ class BarberMainMenu extends JFrame implements ActionListener {
         JButton btnNewButton = new JButton("View Appointment Schedule");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ViewAppointmentSchedule ViewAppSched = new ViewAppointmentSchedule();
+                ViewAppointment ViewApp = new ViewAppointment();
+
             }
         });
         btnNewButton.setBounds(254, 43, 150, 29);

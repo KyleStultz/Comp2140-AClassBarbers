@@ -28,6 +28,7 @@ public class AddClientAccount extends JDialog {
     private JTextField txtEmail;
     private JTextField txtpNum;
     private JTextField txtAge;
+    private JTextField txtId;
     private ArrayList<ClientAccount> ClientAccount = new ArrayList<ClientAccount>(); // array list to store clients when
                                                                                      // they sign up. AddClientAccount
                                                                                      // is the name of the array
@@ -83,6 +84,10 @@ public class AddClientAccount extends JDialog {
         lblAge.setBounds(6, 140, 86, 16);
         AddClientAccountPanel.add(lblAge);
 
+        JLabel lblId = new JLabel("Id");
+        lblId.setBounds(6, 180, 86, 16);
+        AddClientAccountPanel.add(lblId);
+
         txtUName = new JTextField();
         txtUName.setBounds(120, 10, 400, 26);
         AddClientAccountPanel.add(txtUName);
@@ -103,13 +108,18 @@ public class AddClientAccount extends JDialog {
         txtAge.setBounds(120, 131, 400, 26);
         AddClientAccountPanel.add(txtAge);
 
+        txtId = new JTextField();
+        txtId.setBounds(120, 169, 400, 26);
+        AddClientAccountPanel.add(txtId);
+        txtId.setColumns(10);
+
         txtPassword = new JTextField();
-        txtPassword.setBounds(120, 169, 130, 26);
+        txtPassword.setBounds(120, 220, 400, 26);
         AddClientAccountPanel.add(txtPassword);
         txtPassword.setColumns(10);
 
         JLabel lblPassword = new JLabel("Password");
-        lblPassword.setBounds(6, 179, 86, 16);
+        lblPassword.setBounds(6, 220, 86, 16);
         AddClientAccountPanel.add(lblPassword);
         {
             JPanel buttonPane = new JPanel();
@@ -141,9 +151,15 @@ public class AddClientAccount extends JDialog {
                                     JOptionPane.WARNING_MESSAGE);
                         }
 
+                        String i = txtId.getText();
+                        if (txtId.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(txtId, "Please Enter Id", "Input Error",
+                                    JOptionPane.WARNING_MESSAGE);
+                        }
+
                         String p = txtPassword.getText();
 
-                        ClientAccount C = new ClientAccount(u, em, pn, a, p, i);
+                        ClientAccount C = new ClientAccount(u, em, pn, a, i, p);
 
                         ClientAccount.add(C);
                         txtUName.setText("");

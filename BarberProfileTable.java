@@ -25,7 +25,7 @@ public class BarberProfileTable extends JFrame {
 
         BarberProfile = new ArrayList<BarberProfile>();
         display = new JPanel();
-        String[] columnNames = { "ID", "Name", "Age", "Email" };
+        String[] columnNames = { "ID", "Name", "Phone Number", "Email" };
         model = new DefaultTableModel(columnNames, 0);
         ctable = new JTable(model);
         showTable(BarberProfile);
@@ -54,10 +54,9 @@ public class BarberProfileTable extends JFrame {
 
     }
 
-    public void addBarberProfile(String BarberProfileName, String BarberProfileAge, String email, int amountBought,
-            int BarberProfileID) {
-        BarberProfile
-                .add(new BarberProfile(BarberProfileName, BarberProfileAge, email, amountBought, BarberProfileID));
+    public void addBarberProfile(String BarberName, String BarberAvailability, String BarberEmail, int BarberNumber,
+            int BarberID) {
+        BarberProfile.add(new BarberProfile(BarberName, BarberAvailability, BarberEmail, BarberNumber, BarberID));
     }
 
     public void addBarber(BarberProfile b) {
@@ -83,7 +82,7 @@ public class BarberProfileTable extends JFrame {
         BarberProfile.set(cdx, b);
         f.delete();
         for (BarberProfile ba : BarberProfile) {
-            addToFile(bf);
+            addToFile(b);
         }
         model.removeRow(cdx);
         String[] parts = b.toString().split(";");
@@ -93,7 +92,7 @@ public class BarberProfileTable extends JFrame {
 
     public void removeBarberProfile(int BID) {
         for (int i = 0; i < BarberProfile.size(); i++) {
-            if (BarberProfile.get(i).getBID() == BID) {
+            if (BarberProfile.get(i).getBarberID() == BID) {
                 BarberProfile.remove(i);
             }
         }
@@ -102,7 +101,7 @@ public class BarberProfileTable extends JFrame {
     public void updateBarberProfile(int BarberProfileID, String newUsername, String newPhoneNumber, String newEmail,
             int newAge) {
         for (int i = 0; i < BarberProfile.size(); i++) {
-            if (BarberProfile.get(i).getBID() == BarberProfileID) {
+            if (BarberProfile.get(i).getBarberID() == BarberProfileID) {
                 BarberProfile.get(i).updateCname(newUsername);
                 BarberProfile.get(i).updateCAge(newAge);
                 BarberProfile.get(i).updateEmail(newEmail);

@@ -38,7 +38,7 @@ class ClientMainMenu extends JFrame implements ActionListener {
         btnClientProfileButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ClientAccountTable cat = new ClientAccountTable();
-                //cat.setVisible(true);
+                // cat.setVisible(true);
 
             }
         });
@@ -48,7 +48,7 @@ class ClientMainMenu extends JFrame implements ActionListener {
         JButton btnNewButton = new JButton("Make an Appointment");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MakeAppointment makeApp = new MakeAppointment();
+                Appointment App = new Appointment();
             }
         });
         btnNewButton.setBounds(254, 43, 150, 29);
