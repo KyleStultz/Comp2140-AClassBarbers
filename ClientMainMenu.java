@@ -1,121 +1,88 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javax.swing.*; // JFrame, JMenuBar, JMenu, JMenuItem
+import java.awt.event.*; // ActionListener, ActionEvent
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.SystemColor;
 
-public class ClientMainMenu extends JPanel {
-    private static JFrame frame;
-
-    private JPanel pnlCommand;
-    private JPanel pnlDisplay;
-    private JButton cmdEditClient;
-    private JButton cmdMakeAppointment;
-    private JButton cmdGenerateReceipt;
-    private JButton cmdClose;
-    private ClientMainMenu thisMainMenu;
-    private GenerateReceipt genReceipt;
+class ClientMainMenu extends JFrame implements ActionListener {
+    private JPanel contentPane;
 
     public ClientMainMenu() {
-        super(new GridLayout(2, 1));
-        thisMainMenu = this;
+        setBounds(100, 100, 650, 500);
+        contentPane = new JPanel();
+        contentPane.setForeground(Color.WHITE);
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setLayout(new BorderLayout(0, 0));
+        setContentPane(contentPane);
 
-        pnlCommand = new JPanel();
-        pnlDisplay = new JPanel();
-        pnlCommand.setPreferredSize(new Dimension(720, 280));
-        BoxLayout menuLayout = new BoxLayout(pnlCommand, BoxLayout.PAGE_AXIS);
-        pnlCommand.setLayout(menuLayout);
+        JPanel ClientMainMenupanel = new JPanel();
+        ClientMainMenupanel.setBackground(Color.WHITE);
+        ClientMainMenupanel.setForeground(Color.WHITE);
+        contentPane.add(ClientMainMenupanel, BorderLayout.CENTER);
+        ClientMainMenupanel.setLayout(null);
 
-        cmdEditClient = new JButton("Edit Client Account");
-        cmdMakeAppointment = new JButton("Make an Appointment");
-        cmdGenerateReceipt = new JButton("View Generated Receipt");
-        cmdClose = new JButton("Close");
+        JButton btnClientProfileButton = new JButton("Client Act Settings");
+        btnClientProfileButton.setForeground(Color.BLACK);
+        btnClientProfileButton.setBackground(Color.WHITE);
+        btnClientProfileButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ClientAccountTable cat = new ClientAccountTable();
+                //cat.setVisible(true);
 
-        // button commands
-        cmdEditClient.addActionListener(new EditClientButtonListener());
-        cmdMakeAppointment.addActionListener(new MakeAppointmentButtonListener());
-        cmdGenerateReceipt.addActionListener(new GenerateReceiptButtonListener());
-        cmdClose.addActionListener(new CloseButtonListener());
+            }
+        });
+        btnClientProfileButton.setBounds(6, 43, 150, 29);
+        ClientMainMenupanel.add(btnClientProfileButton);
 
-        cmdEditClient.setBackground(Color.white);
-        cmdMakeAppointment.setBackground(Color.white);
-        cmdGenerateReceipt.setBackground(Color.white);
-        cmdClose.setBackground(Color.red);
-        pnlCommand.setBackground(Color.white);
-        pnlDisplay.setBackground(Color.white);
+        JButton btnNewButton = new JButton("Make an Appointment");
+        btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                MakeAppointment makeApp = new MakeAppointment();
+            }
+        });
+        btnNewButton.setBounds(254, 43, 150, 29);
+        ClientMainMenupanel.add(btnNewButton);
 
-        pnlCommand.add(cmdEditClient);
-        pnlCommand.add(cmdMakeAppointment);
-        pnlCommand.add(cmdGenerateReceipt);
-        pnlCommand.add(cmdClose);
+        JButton btnAutoRemindButton = new JButton("View Receipt");
+        btnAutoRemindButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ViewReceipt ViewRec = new ViewReceipt();
+            }
+        });
+        btnAutoRemindButton.setBounds(461, 43, 150, 29);
+        ClientMainMenupanel.add(btnAutoRemindButton);
 
-        ////
+        JLabel lblMainHeader = new JLabel("A CLASS BARBERS CLIENT MAIN MENU");
+        lblMainHeader.setHorizontalAlignment(SwingConstants.CENTER);
+        lblMainHeader.setForeground(new Color(0, 51, 255));
+        lblMainHeader.setBounds(6, 6, 628, 16);
+        ClientMainMenupanel.add(lblMainHeader);
 
-        ImageIcon logo = new ImageIcon("icons/logo.png");
-        JLabel label = new JLabel("", logo, JLabel.NORTH_EAST);
-        add(label);
-        add(pnlCommand);
-        add(pnlDisplay);
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+        JMenu SideMenu = new JMenu("Side Menu");
+        menuBar.add(SideMenu);
+        JMenuItem quit = new JMenuItem("Quit");
+        quit.addActionListener(this);
+        SideMenu.add(quit);
     }
 
-    public static void createAndShowGUI() {
-        // Create and set up the window.
-        frame = new JFrame("A CLASS BARBERS");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Create and set up the content pane.
-        ClientMainMenu newContentPane = new ClientMainMenu();
-        newContentPane.setOpaque(true); // content panes must be opaque
-        frame.setContentPane(newContentPane);
-
-        // Display the window.
-        frame.pack();
-        frame.setVisible(true);
-
-    }
-
-    public static void main(String[] args) {
-        // new OpeningScreen();
-        // AddProduct ap = new AddProduct();
-        // Product p = AddProduct.A
-    }
-
-    public class EditClientButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {// listener for EditClient button, initiates when button is clicked
-            // function_call();
-        }
-    }
-
-    public class MakeAppointmentButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {// listener for MakeAppointment button, initiates when button is
-                                                    // clicked
-            // function_call();
-            // new MakeAppointment();
-            // frame.setVisibile(true)
-        }
-    }
-
-    public class GenerateReceiptButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {// listener for GenerateReceipt button, initiates when button is
-                                                    // clicked
-            new GenerateReceipt();
-            frame.setVisible(false);
-        }
-    }
-
-    public class CloseButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e)// listener for Close button, initiates when button is clicked
-        {
+    public void actionPerformed(ActionEvent ae) {
+        String choice = ae.getActionCommand();
+        if (choice.equals("Quit")) {
             System.exit(0);
-
         }
 
     }
-
 }

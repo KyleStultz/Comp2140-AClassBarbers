@@ -1,133 +1,87 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javax.swing.*; // JFrame, JMenuBar, JMenu, JMenuItem
+import java.awt.event.*; // ActionListener, ActionEvent
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.SystemColor;
 
-public class BarberMainMenu extends JPanel {
-    private static JFrame frame;
-
-    private JPanel pnlCommand;
-    private JPanel pnlDisplay;
-    private JButton cmdAddBarber;
-    private JButton cmdEditBarber;
-    private JButton cmdViewAppointmentSchedule;
-    private JButton cmdAutomatedReminder;
-    private JButton cmdClose;
-    private BarberMainMenu thisMainMenu;
-    private AutomatedReminder autoremind;
-    private ViewAppointmentSchedule viewappsch;
+class BarberMainMenu extends JFrame implements ActionListener {
+    private JPanel contentPane;
 
     public BarberMainMenu() {
-        super(new GridLayout(2, 1));
-        thisMainMenu = this;
+        setBounds(100, 100, 650, 500);
+        contentPane = new JPanel();
+        contentPane.setForeground(Color.WHITE);
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setLayout(new BorderLayout(0, 0));
+        setContentPane(contentPane);
 
-        pnlCommand = new JPanel();
-        pnlDisplay = new JPanel();
-        pnlCommand.setPreferredSize(new Dimension(700, 300));
-        BoxLayout menuLayout = new BoxLayout(pnlCommand, BoxLayout.PAGE_AXIS);
-        pnlCommand.setLayout(menuLayout);
+        JPanel BarberMainMenupanel = new JPanel();
+        BarberMainMenupanel.setBackground(Color.WHITE);
+        BarberMainMenupanel.setForeground(Color.WHITE);
+        contentPane.add(BarberMainMenupanel, BorderLayout.CENTER);
+        BarberMainMenupanel.setLayout(null);
 
-        cmdAddBarber = new JButton("Add New Barber");
-        cmdEditBarber = new JButton("Edit Barber Profile");
-        cmdViewAppointmentSchedule = new JButton("View Appointment Schedule");
-        cmdAutomatedReminder = new JButton("Open Automated Reminder");
-        cmdClose = new JButton("Close");
+        JButton btnBarberProfileButton = new JButton("Barber Profile");
+        btnBarberProfileButton.setForeground(Color.BLACK);
+        btnBarberProfileButton.setBackground(Color.WHITE);
+        btnBarberProfileButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                BarberProfileTable bpt = new BarberProfileTable();
 
-        // button commands
-        cmdAddBarber.addActionListener(new AddBarberButtonListener());
-        cmdEditBarber.addActionListener(new EditBarberButtonListener());
-        cmdViewAppointmentSchedule.addActionListener(new ViewAppointmentScheduleButtonListener());
-        cmdAutomatedReminder.addActionListener(new AutomatedReminderButtonListener());
-        cmdClose.addActionListener(new CloseButtonListener());
+            }
+        });
+        btnBarberProfileButton.setBounds(6, 43, 150, 29);
+        BarberMainMenupanel.add(btnBarberProfileButton);
 
-        cmdEditBarber.setBackground(Color.white);
-        cmdViewAppointmentSchedule.setBackground(Color.white);
-        cmdAutomatedReminder.setBackground(Color.white);
-        cmdClose.setBackground(Color.red);
-        pnlCommand.setBackground(Color.white);
-        pnlDisplay.setBackground(Color.white);
+        JButton btnNewButton = new JButton("View Appointment Schedule");
+        btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ViewAppointmentSchedule ViewAppSched = new ViewAppointmentSchedule();
+            }
+        });
+        btnNewButton.setBounds(254, 43, 150, 29);
+        BarberMainMenupanel.add(btnNewButton);
 
-        pnlCommand.add(cmdEditBarber);
-        pnlCommand.add(cmdViewAppointmentSchedule);
-        pnlCommand.add(cmdAutomatedReminder);
-        pnlCommand.add(cmdClose);
+        JButton btnAutoRemindButton = new JButton("Automated Reminder");
+        btnAutoRemindButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AutomatedReminder aurem = new AutomatedReminder();
+            }
+        });
+        btnAutoRemindButton.setBounds(461, 43, 150, 29);
+        BarberMainMenupanel.add(btnAutoRemindButton);
 
-        ////
+        JLabel lblMainHeader = new JLabel("A CLASS BARBERS ADMIN SECTION");
+        lblMainHeader.setHorizontalAlignment(SwingConstants.CENTER);
+        lblMainHeader.setForeground(new Color(0, 51, 255));
+        lblMainHeader.setBounds(6, 6, 628, 16);
+        BarberMainMenupanel.add(lblMainHeader);
 
-        ImageIcon logo = new ImageIcon("icons/logo.png");
-        JLabel label = new JLabel("", logo, JLabel.NORTH_EAST);
-        add(label);
-        add(pnlCommand);
-        add(pnlDisplay);
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+        JMenu SideMenu = new JMenu("Side Menu");
+        menuBar.add(SideMenu);
+        JMenuItem quit = new JMenuItem("Quit");
+        quit.addActionListener(this);
+        SideMenu.add(quit);
     }
 
-    public static void createAndShowGUI() {
-        // Create and set up the window.
-        frame = new JFrame("A CLASS BARBERS");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Create and set up the content pane.
-        BarberMainMenu newContentPane = new BarberMainMenu();
-        newContentPane.setOpaque(true); // content panes must be opaque
-        frame.setContentPane(newContentPane);
-
-        // Display the window.
-        frame.pack();
-        frame.setVisible(true);
-
-    }
-
-    public static void main(String[] args) {
-        // new OpeningScreen();
-
-    }
-
-    public class AddBarberButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) { // listener for AddBarber button, initiates when button is clicked
-            new AddBarberProfile();
-            frame.setVisible(false);
-        }
-    }
-
-    public class EditBarberButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {// listener for EditBarber button, initiates when button is clicked
-            // function_call();
-            new EditBarberProfile();
-            frame.setVisible(false);
-        }
-    }
-
-    public class ViewAppointmentScheduleButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {// listener for ViewAppointmentSchedule button, initiates when
-                                                    // button is clicked
-            // function_call();
-            //ViewAppointmentSchedule.createandShowGUI();
-        }
-    }
-
-    public class AutomatedReminderButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {// listener for AutomatedReminder button, initiates when button is
-                                                    // clicked
-
-            //AutomatedReminder.createAndShowGUI();
-            frame.setVisible(false);
-        }
-    }
-
-    public class CloseButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e)// listener for Close button, initiates when button is clicked
-        {
+    public void actionPerformed(ActionEvent ae) {
+        String choice = ae.getActionCommand();
+        if (choice.equals("Quit")) {
             System.exit(0);
-
         }
 
     }
-
 }

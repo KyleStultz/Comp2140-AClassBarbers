@@ -135,16 +135,15 @@ public class OpeningScreen extends JFrame {
     // opens registration and login
     private class RegisterButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            new AddClientAccount().RegisterClientAccount();
-            setVisible(false);
+            AddClientAccount aca = new AddClientAccount();
+            aca.setVisible(true);
         }
     }
 
-    private class LoginButtonListener implements ActionListener {
+    public class LoginButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             LoginForm lf = new LoginForm();
-            lf.setVisible(false);
-
+            lf.setVisible(true);
         }
     }
 
