@@ -30,22 +30,23 @@ public class OpeningScreen extends JFrame {
     // private JLabel imageLabel;
     private int top = 1, left = 1, bottom = 1, right = 1;
     // private TheMainMenu thisMainU;
-    // private EntryScreen enter;
+    // private OpeningScreen enter;
 
     public OpeningScreen() {
-
         setTitle("A CLASS BARBERS");
         /// defining the layout initially
         setLayout(new GridLayout(2, 1));
-        setSize(1000, 1000);
+        setSize(1000, 800);
 
         // creating panels and their colours
         GridBagConstraints gbc = new GridBagConstraints();
+        Color lightred = (new Color(255, 65, 0));
+        Color lightblue = (new Color(0, 179, 255));
 
         /// top half
         pnlCover = new JPanel();
 
-        pnlCover.setBackground(Color.blue);
+        pnlCover.setBackground(Color.white);
 
         JLabel title = new JLabel("", JLabel.SOUTH_EAST);
         pnlCover.add(title, BorderLayout.NORTH);
@@ -59,9 +60,10 @@ public class OpeningScreen extends JFrame {
         pnlButtons = new JPanel();
         pnlButtons.setLayout(new GridBagLayout());
         pnlButtons.setBackground(Color.white);
-        pnlButtons.setBorder(new EmptyBorder(new Insets(10, 100, 10, 100))); // Move around buttons ///[t l b r] border?
+        pnlButtons.setBorder(new EmptyBorder(new Insets(10, 100, 10, 100)));
 
         // Create Buttons
+        // gbc.weightx=1; //c.weightx=0.0;
         gbc.weighty = 0.25; /// button spacing
         gbc.gridx = 0; /// sets button positions
         gbc.gridy = 0;
@@ -70,11 +72,11 @@ public class OpeningScreen extends JFrame {
         gbc.insets = new Insets(2, 20, 2, 20);/// padding or gaps
         Icon registericon = new ImageIcon("images/profilepic.png");
         registerbutton = new JButton("  Register User", registericon);
-        registerbutton.setSize(new Dimension(340, 100));
+        registerbutton.setSize(new Dimension(300, 70));
         registerbutton.addActionListener(new RegisterButtonListener());
 
         registerbutton.setFont(new Font("Arial", Font.BOLD, 32));/// set button font
-        registerbutton.setBackground(Color.white);/// set button bg colour
+        registerbutton.setBackground(lightblue);/// set button bg colour
         registerbutton.setForeground(Color.black);/// set button text colour
         pnlButtons.add(registerbutton, gbc);
         gbc.insets = new Insets(2, 20, 2, 20);/// padding or gaps
@@ -90,7 +92,7 @@ public class OpeningScreen extends JFrame {
         // loginbutton.setSize(new Dimension(340, 100));
 
         loginbutton.setFont(new Font("Arial", Font.BOLD, 32));/// set button font
-        loginbutton.setBackground(Color.white);/// set button bg colour
+        loginbutton.setBackground(lightred);/// set button bg colour
         loginbutton.setForeground(Color.black);/// set button text colour
         pnlButtons.add(loginbutton, gbc);
 
@@ -108,7 +110,7 @@ public class OpeningScreen extends JFrame {
 
         exitbutton.setPreferredSize(new Dimension(400, 100)); /// set button size dimensions
         exitbutton.setFont(new Font("Arial", Font.BOLD, 32));/// set button font
-        exitbutton.setBackground(Color.blue);/// set button bg colour
+        exitbutton.setBackground(lightred);/// set button bg colour
         exitbutton.setForeground(Color.white);/// set button text colour
         pnlButtons.add(exitbutton, gbc);
 
@@ -121,7 +123,7 @@ public class OpeningScreen extends JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setUndecorated(true);
         pack();
-        setResizable(true);
+        setResizable(false);
         this.setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -133,16 +135,16 @@ public class OpeningScreen extends JFrame {
     // opens registration and login
     private class RegisterButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            new AddClientAccount();
-            setVisible(true);
+            new AddClientAccount().RegisterClientAccount();
+            setVisible(false);
         }
     }
 
     private class LoginButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            new LoginForm();
-            setSize(300, 100);
-            setVisible(true);
+            LoginForm lf = new LoginForm();
+            lf.setVisible(false);
+
         }
     }
 
