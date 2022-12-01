@@ -20,9 +20,11 @@ public class BarberProfileTable extends JFrame {
     private DefaultTableModel model;
     File f = new File("BarberProfile.txt");
 
+
+
     public BarberProfileTable() {
         new GridLayout(2, 1);
-
+        setBounds(100, 100, 650, 500);
         BarberProfile = new ArrayList<BarberProfile>();
         display = new JPanel();
         String[] columnNames = { "ID", "Name", "Phone Number", "Email" };
@@ -102,7 +104,7 @@ public class BarberProfileTable extends JFrame {
             int newAge) {
         for (int i = 0; i < BarberProfile.size(); i++) {
             if (BarberProfile.get(i).getBarberID() == BarberProfileID) {
-                BarberProfile.get(i).updateCname(newUsername);
+                BarberProfile.get(i).updateBarbername(newUsername);
                 BarberProfile.get(i).updateCAge(newAge);
                 BarberProfile.get(i).updateEmail(newEmail);
                 BarberProfile.get(i).updatePhoneNumber(newPhoneNumber);

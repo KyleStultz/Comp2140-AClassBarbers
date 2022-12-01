@@ -28,6 +28,10 @@ public class ClientAccount {
         this.id = id;
     }
 
+    public ClientAccount(String u, String em, String pn, int a, String i, String p) {
+        ClientAccount.txt
+    }
+
     public String getUsername() {
         return this.Username;
     }

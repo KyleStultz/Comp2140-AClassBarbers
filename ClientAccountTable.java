@@ -22,7 +22,7 @@ public class ClientAccountTable extends JFrame {
 
     public ClientAccountTable() {
         new GridLayout(2, 1);
-
+        setBounds(100, 100, 650, 500);
         ClientAccount = new ArrayList<ClientAccount>();
         display = new JPanel();
         String[] columnNames = { "ID", "Name", "Age", "Email" };
@@ -91,9 +91,9 @@ public class ClientAccountTable extends JFrame {
         model.insertRow(cdx, item);
     }
 
-    public void removeClientAccount(int cID) {
+    public void removeClientAccount(int ClientAccountID) {
         for (int i = 0; i < ClientAccount.size(); i++) {
-            if (ClientAccount.get(i).getCID() == cID) {
+            if (ClientAccount.get(i).getID() == ClientAccountID) {
                 ClientAccount.remove(i);
             }
         }
@@ -102,7 +102,7 @@ public class ClientAccountTable extends JFrame {
     public void updateClientAccount(int ClientAccountID, String newUsername, String newPhoneNumber, String newEmail,
             int newAge) {
         for (int i = 0; i < ClientAccount.size(); i++) {
-            if (ClientAccount.get(i).getCID() == ClientAccountID) {
+            if (ClientAccount.get(i).getID() == ClientAccountID) {
                 ClientAccount.get(i).updateCname(newUsername);
                 ClientAccount.get(i).updateCAge(newAge);
                 ClientAccount.get(i).updateEmail(newEmail);

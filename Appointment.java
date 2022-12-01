@@ -10,24 +10,28 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
+import java.text.DecimalFormat;
 import javax.swing.border.EmptyBorder;
 
 public class Appointment extends JFrame {
     // variable declaration
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 800;
+    private static final int WIDTH = 600;
+    private static final int HEIGHT = 910;
 
     private JComboBox<String> weekDays;
     private JComboBox<String> scheduleTime;
     private JComboBox<String> barberChoice;
     private JComboBox<String> ethRace;
+    private JComboBox<String> Style;
     private JTextField textField;
-    private JCheckBox Fade;
-    private JCheckBox TrimandShave;
-    private JCheckBox LineupandShave;
-    private JCheckBox Shave;
     private JCheckBox Shampoo;
     private JCheckBox HotTowel;
+    // Named constants for rates
+    private final double FADE_LINEUP = 1200.00;
+    private final double LINEUP_SHAVE = 600.00;
+    private final double TRIM_SHAVE = 1200.00;
+    private final double SHAMPOO = 1200.00;
+    private final double HOT_TOWEL = 500.00;
 
     private JButton schedule; // Schedule the appointment
 
@@ -44,6 +48,9 @@ public class Appointment extends JFrame {
             { "Chris Reid", "Obrien Samuels" };
 
     private String[] Ethnicity = { "Chinese", "Caucasian/White", "Black", "Indian" };
+
+    private String[] HairStyle = { "Fade for $1200.00", "Lineup Alone and Shave for $600.00",
+            "Trim and Shave for $1200" };
 
     public Appointment() {
 
@@ -66,16 +73,20 @@ public class Appointment extends JFrame {
 
         windowPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
+        DecimalFormat dollar = new DecimalFormat("#,##0.00");
+
         // centerPanel holds all components
         GridLayout layout = new GridLayout(11, 1);
         layout.setVgap(10);
         layout.setHgap(20);
+
         JPanel centerPanel = new JPanel(layout);
 
         weekDays = new JComboBox<>(dayOptions);
         scheduleTime = new JComboBox<>(timeOptions);
         barberChoice = new JComboBox<>(BarberOptions);
         ethRace = new JComboBox<>(Ethnicity);
+        Style = new JComboBox<>(HairStyle);
 
         textField = new JTextField();
 
@@ -86,8 +97,14 @@ public class Appointment extends JFrame {
         centerPanel.add(scheduleTime);
         centerPanel.add(new JLabel("Select the name of the barber for your appointment"));
         centerPanel.add(barberChoice);
-        centerPanel.add(new JLabel("Select Ethnicity"));
+        centerPanel.add(new JLabel("Select Ethnicity/HairType"));
         centerPanel.add(ethRace);
+        centerPanel.add(new JLabel("Select Type of Haircut"));
+        centerPanel.add(Style);
+
+        Shampoo = new JCheckBox("Shampoo ($" + dollar.format(SHAMPOO) + " per bottle)");
+        HotTowel = new JCheckBox("Hot Towel ($" + dollar.format(HOT_TOWEL) + " per towel)");
+
         centerPanel.add(schedule);
         centerPanel.add(new JLabel("Your appointment is scheduled for:"));
         centerPanel.add(textField);
@@ -101,13 +118,26 @@ public class Appointment extends JFrame {
                 if (weekDays.getSelectedItem() != null && scheduleTime.getSelectedItem() != null
                         && barberChoice.getSelectedItem() != null) {
                     // setting value in textField
-                    textField.setText(weekDays.getSelectedItem() + " at " + scheduleTime.getSelectedItem() + "with"
-                            + barberChoice.getSelectedItem());
+                    textField.setText(weekDays.getSelectedItem() + " at " + scheduleTime.getSelectedItem() + " with "
+                            + barberChoice.getSelectedItem() + " for a " + Style.getSelectedItem() + " . Ethnicity: "
+                            + ethRace.getSelectedItem());
                 }
 
             }
         });
 
+    }
+
+    public double getRate() {
+        double rate = 0.0;
+
+        if (Shampoo.isSelected())
+            rate += SHAMPOO;
+        if (HotTowel.isSelected())
+            rate += HOT_TOWEL;
+        rate += rate;
+
+        return rate;
     }
 
 }

@@ -158,6 +158,13 @@ public class AddClientAccount extends JDialog {
                         }
 
                         String p = txtPassword.getText();
+                        if (txtPassword.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(txtId, "Please Enter Id", "Input Error",
+                                    JOptionPane.WARNING_MESSAGE);
+                        }
+
+                        ClientMainMenu cmenu = new ClientMainMenu();
+                        cmenu.setVisible(true);
 
                         ClientAccount C = new ClientAccount(u, em, pn, a, i, p);
 
