@@ -12,6 +12,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import java.text.DecimalFormat;
 import javax.swing.border.EmptyBorder;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.awt.event.KeyEvent;
 
 public class Appointment extends JFrame {
     // variable declaration
@@ -121,7 +124,27 @@ public class Appointment extends JFrame {
                     textField.setText(weekDays.getSelectedItem() + " at " + scheduleTime.getSelectedItem() + " with "
                             + barberChoice.getSelectedItem() + " for a " + Style.getSelectedItem() + " . Ethnicity: "
                             + ethRace.getSelectedItem());
-                }
+
+                    String filename = "ViewAppointment";;
+                    try (FileWriter writer = new FileWriter(filename)) {
+                        try {
+                            textField.write(writer);
+                        } catch (IOException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                        try {
+                            writer.close();
+                        } catch (IOException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                    } catch (IOException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                    }
+
 
             }
         });

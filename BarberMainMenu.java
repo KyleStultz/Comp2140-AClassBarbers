@@ -37,7 +37,7 @@ class BarberMainMenu extends JFrame implements ActionListener {
         btnBarberProfileButton.setBackground(Color.WHITE);
         btnBarberProfileButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                BarberProfileTable bpt = new BarberProfileTable();
+                AddBarberProfile abf = new AddBarberProfile();
 
             }
         });

@@ -20,8 +20,6 @@ public class BarberProfileTable extends JFrame {
     private DefaultTableModel model;
     File f = new File("BarberProfile.txt");
 
-
-
     public BarberProfileTable() {
         new GridLayout(2, 1);
         setBounds(100, 100, 650, 500);
@@ -56,12 +54,12 @@ public class BarberProfileTable extends JFrame {
 
     }
 
-    public void addBarberProfile(String BarberName, String BarberAvailability, String BarberEmail, int BarberNumber,
+    public void addBarber(String BarberName, String BarberAvailable, String BarberEmail, int BarberNumber,
             int BarberID) {
-        BarberProfile.add(new BarberProfile(BarberName, BarberAvailability, BarberEmail, BarberNumber, BarberID));
+        BarberProfile.add(new BarberProfile(BarberName, BarberAvailable, BarberEmail, BarberNumber, BarberID));
     }
 
-    public void addBarber(BarberProfile b) {
+    public void addBarberProfile(BarberProfile b) {
         BarberProfile.add(b);
         addToTable(b);
         addToFile(b);
@@ -92,9 +90,9 @@ public class BarberProfileTable extends JFrame {
         model.insertRow(cdx, item);
     }
 
-    public void removeBarberProfile(int BID) {
+    public void removeBarberProfile(int BarberID) {
         for (int i = 0; i < BarberProfile.size(); i++) {
-            if (BarberProfile.get(i).getBarberID() == BID) {
+            if (BarberProfile.get(i).getBarberID() == BarberID) {
                 BarberProfile.remove(i);
             }
         }
@@ -104,8 +102,8 @@ public class BarberProfileTable extends JFrame {
             int newAge) {
         for (int i = 0; i < BarberProfile.size(); i++) {
             if (BarberProfile.get(i).getBarberID() == BarberProfileID) {
-                BarberProfile.get(i).updateBarbername(newUsername);
-                BarberProfile.get(i).updateCAge(newAge);
+                BarberProfile.get(i).updateBarberName(newUsername);
+                BarberProfile.get(i).updateBarberAge(newAge);
                 BarberProfile.get(i).updateEmail(newEmail);
                 BarberProfile.get(i).updatePhoneNumber(newPhoneNumber);
             }
@@ -147,7 +145,7 @@ public class BarberProfileTable extends JFrame {
 
     private class AddBarberProfileListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            EditBarberProfile addcl = new EditBarberProfile(thisForm);
+            AddBarberProfile addcl = new AddBarberProfile(thisForm, BarberTable);
             System.out.println(addcl);
         }
     }

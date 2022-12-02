@@ -14,7 +14,7 @@ public class BarberProfile {
     private char BarberEmail, BarberAvailable, BarberLicenseNum;
     private Scanner scanner = new Scanner(System.in);
 
-    public BarberProfile(String empty) {
+    public BarberProfile(String empty, String barberAvailable2, String barberEmail2, int barberNumber, int barberID) {
         this.id = empty;
     }
 
@@ -27,6 +27,9 @@ public class BarberProfile {
         this.BarberAvailable = BarberAvailable;
         this.BarberLicenseNum = BarberLicenseNum;
         this.id = id;
+    }
+
+    public BarberProfile(String u, String em, String pn, int a, String i, String p) {
     }
 
     public String getBarberFName() {
@@ -69,7 +72,7 @@ public class BarberProfile {
         this.BarberAvailable = BarberAvailable;
     }
 
-    public String getId() {
+    public String getBarberID() {
         return this.id;
     }
 

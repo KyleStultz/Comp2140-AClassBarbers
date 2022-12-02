@@ -87,6 +87,15 @@ class LoginForm extends JFrame implements ActionListener {
             // make page visible to the user
             bmenu.setVisible(true);
 
+        } else if (userValue.equals("KyleStultz") && passValue.equals("kylepassword")) { // if authentic, navigate user
+                                                                                         // to a new page
+
+            BarberMainMenu bmenu = new BarberMainMenu();
+
+            bmenu.setVisible(true);
+        } else if (userValue.equals("ReynaldoKelly") && passValue.equals("kellypassword")) {
+            ClientMainMenu cmenu = new ClientMainMenu();
+            cmenu.setVisible(true);
         } else if (userValue.equals("JohnBrown") && passValue.equals("password")) {
             ClientMainMenu cmenu = new ClientMainMenu();
             cmenu.setVisible(true);
